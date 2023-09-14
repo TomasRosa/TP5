@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded",() =>{
             Email:"john@doe.com",
         }
     */
-        //CREO QUE LO AGREGUE A LA API PERO LO COMENTE, SE QUEDO AGREGADO IGUAL?? WTF
+        //CREO QUE LO AGREGUE A LA API PERO LO COMENTE, SE QUEDO AGREGADO IGUAL??
     fetch(employeeEndpoint,/*{
         
         method: "POST",

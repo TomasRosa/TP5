@@ -15,9 +15,26 @@ document.addEventListener("DOMContentLoaded",() =>{
     const urlApi = "https://utn-lubnan-api-1.herokuapp.com";
     const employeeEndpoint = `${urlApi}/api/Employee`;
     const companyEndpoint = `${urlApi}/api/Company`;
-
-
-    fetch(employeeEndpoint)
+    /*
+    const nuevoEmpleado =
+        {
+            companyId:8,
+            firstName:"John",
+            lastName:"Doe",
+            Email:"john@doe.com",
+        }
+    */
+        //CREO QUE LO AGREGUE A LA API PERO LO COMENTE, SE QUEDO AGREGADO IGUAL?? WTF
+    fetch(employeeEndpoint,/*{
+        
+        method: "POST",
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(nuevoEmpleado)
+        
+    }*/)
     .then(res => res.json())
     .then(data =>{
         empleados = data;
@@ -30,6 +47,8 @@ document.addEventListener("DOMContentLoaded",() =>{
     .then(data =>{
         compañia = data;
         console.log(data);
+
+        
         empleados.forEach(empleado =>{
             const newRow = table.insertRow();
 

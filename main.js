@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     const idEmail = document.getElementById('idEmail');
     const idNombreCompañia = document.getElementById('idNombreCompañia');
     const table = document.getElementById('table');
-
+    ///PREGUNTAR ERROR JOHN DOE, NO IMPRIME NADA PERO LO COMENTO Y LO IMPRIME... WTF
     let empleados;
     let compañia;
 
@@ -35,7 +35,14 @@ document.addEventListener("DOMContentLoaded",() =>{
         body: JSON.stringify(nuevoEmpleado)
         
     }*/)
-    .then(res => res.json())
+    .then(res => 
+    {
+        if (!res.ok) 
+        {
+            console.log("Error en la solicitud POST");
+        }
+        return res.json()
+    })
     .then(data =>{
         empleados = data;
         console.log(empleados); //Preguntar a nahue porque no puedo imprimirlo mediante backTicks
@@ -72,6 +79,9 @@ document.addEventListener("DOMContentLoaded",() =>{
             const tdNombreCompañia = newRow.insertCell();
             tdNombreCompañia.innerHTML = nombre;
         })
+    })
+    .catch(err => {
+        console.error("Error en la solicutd POST" + err);
     })
     function asignarCompañiaAEmpleado (IDcompañia, arregloCompañia)
     {
